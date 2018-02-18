@@ -1,30 +1,49 @@
 import React, { Component } from 'react'
-import { EditableText, List } from '../../core'
+import A4 from '../baseTemplate'
+import { EditableText, List, Avatar } from '../../core'
 import loremIpsum from 'lorem-ipsum'
+import style from './style.scss'
 
 export default class componentName extends Component {
   render() {
     return (
-      <article>
-        <h2>教育经历</h2>
-        <List>
-          <EditableText
-            disabled
-            tagName="div"
-            onChange={(value) => { console.log(value) }}
-            html={loremIpsum()}
-          />
-        </List>
-        <h2>工作经历</h2>
-        <List>
-          <EditableText
-            disabled
-            tagName="div"
-            onChange={(value) => { console.log(value) }}
-            html={loremIpsum()}
-          />
-        </List>
-      </article>
+      <A4>
+        <div className={style.profile}>
+          <Avatar />
+          <List>
+            <EditableText
+              tagName="div"
+              html={loremIpsum()}
+            />
+          </List>
+        </div>
+        <div className={style.experience}>
+          <div className={style.infoCol}>
+            <EditableText
+              tagName="h2"
+              html="教育经历"
+            />
+            <List>
+              <EditableText
+                tagName="div"
+                html={loremIpsum()}
+              />
+            </List>
+          </div>
+          <div className={style.infoCol}>
+            <EditableText
+              tagName="h2"
+              html="教育经历"
+            />
+            <List>
+              <EditableText
+                tagName="div"
+                html={loremIpsum()}
+              />
+            </List>
+          </div>
+        </div>
+      </A4>
     )
   }
 }

@@ -1,3 +1,4 @@
 import List from './List'
 import EditableText from './EditableText'
-export { List, EditableText }
+import Avatar from './Avatar'
+export { List, EditableText, Avatar }

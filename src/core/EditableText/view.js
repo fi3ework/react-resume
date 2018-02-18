@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 class EditableText extends Component {
   emit = (e) => {
     let html = this.textNode.innerHTML
-    this.props.onChange(html)
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(html)
+    }
   }
 
   blur = (e) => {

@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 300px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.input{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 0;
+}
