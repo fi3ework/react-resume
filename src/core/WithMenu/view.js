@@ -38,10 +38,7 @@ export default class View extends Component {
   }
 
   remove = () => {
-    this.setState({
-      doesExist: false
-    })
-    this.props.remove()
+    this.props.removeItem(this.props.id)
   }
 
   cloneBefore = () => {
@@ -57,7 +54,7 @@ export default class View extends Component {
   render() {
     return (
       this.state.doesExist ?
-        <div
+        <li
           ref={(node) => { this.node = node }}
           onContextMenu={this.showMenu}
         >
@@ -74,7 +71,7 @@ export default class View extends Component {
             </ButtonGroup>
           </div>
           {this.state.toRender}
-        </div>
+        </li>
         : null
     )
   }

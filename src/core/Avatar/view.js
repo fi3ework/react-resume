@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import style from './style.scss'
-import placeholder from './avatar-placeholder.jpg'
+import placeholder from './mikasa.jpg'
 
 export default class componentName extends Component {
   upload = () => {

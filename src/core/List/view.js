@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
 import style from './style.scss'
 import WithMenu from '../WithMenu'
 
@@ -8,58 +7,64 @@ export default class List extends Component {
   constructor(props) {
     super(props)
     let idArr = React.Children.map(this.props.children, (item, index) => {
-      return index + 1
+      return index
     })
     this.state = {
       idSequence: idArr,
-      count: React.Children.count(this.props.children)
+      index: React.Children.count(this.props.children)
     }
   }
 
-  renderItems = () => {
-    let child =
-      <WithMenu
-        remove={this.removeItem}
-        insertBefore={this.insertBefore}
-        insertAfter={this.insertAfter}
-      >
-        {this.props.children}
-      </WithMenu>
+  renderChildren = () => {
     let list = []
     let sequence = this.state.idSequence
+    console.log(sequence)
     for (let i = 0; i < sequence.length; i++) {
-      let currItem = React.cloneElement(
-        child,
-        {
-          key: sequence[i],
-          id: sequence[i]
-        }
-      )
+      let currItem
+      if (sequence[i] >= 0 &&
+        sequence[i] <= React.Children.count(this.props.children) - 1) {
+        currItem = <WithMenu
+          key={sequence[i]}
+          id={sequence[i]}
+          removeItem={this.removeItem}
+          insertBefore={this.insertBefore}
+          insertAfter={this.insertAfter}
+        >
+          {this.props.children[sequence[i]]}
+        </WithMenu>
+      } else {
+        currItem = <WithMenu
+          key={sequence[i]}
+          id={sequence[i]}
+          removeItem={this.removeItem}
+          insertBefore={this.insertBefore}
+          insertAfter={this.insertAfter}
+        >
+          {this.props.children[0]}
+        </WithMenu>
+      }
       list.push(currItem)
     }
     return list
   }
 
   insertBefore = (id) => {
-    let newCount = this.state.count + 1
-    let newItemIndex = newCount
+    let newIndex = this.state.index + 1
     let newSequence = this.state.idSequence.slice()
-    newSequence.splice(newSequence.indexOf(id), 0, newItemIndex)
-
+    newSequence.splice(newSequence.indexOf(id), 0, newIndex - 1)
     this.setState({
-      count: newCount,
+      hasChanged: true,
+      index: newIndex,
       idSequence: newSequence
     })
   }
 
   insertAfter = (id) => {
-    let newCount = this.state.count + 1
-    let newItemIndex = newCount
+    let newIndex = this.state.index + 1
     let newSequence = this.state.idSequence.slice()
-    newSequence.splice(newSequence.indexOf(id) + 1, 0, newItemIndex)
-
+    newSequence.splice(newSequence.indexOf(id) + 1, 0, newIndex - 1)
     this.setState({
-      count: newCount,
+      index: newIndex,
       idSequence: newSequence
     })
   }
@@ -68,17 +73,24 @@ export default class List extends Component {
     console.log('move')
   }
 
-  removeItem= () => {
-    console.log('removed')
+  removeItem = (id) => {
+    console.log(this.state.idSequence.length)
+    if (this.state.idSequence.length === 1) {
+      return
+    }
+
+    let newSequence = this.state.idSequence.slice()
+    newSequence.splice(newSequence.indexOf(id), 1)
+    this.setState({
+      idSequence: newSequence
+    })
   }
 
   render() {
     return (
-      <div className={style.container}>
-        {
-          this.renderItems()
-        }
-      </div>
+      <ul className={style.container}>
+        {this.renderChildren()}
+      </ul>
     )
   }
 }
