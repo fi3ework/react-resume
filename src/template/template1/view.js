@@ -10,6 +10,14 @@ export default class componentName extends Component {
       <A4>
         <div className={style.profile}>
           <Avatar />
+          <EditableText
+            tagName="div"
+            html={'Wee'}
+          />
+          <EditableText
+            tagName="div"
+            html={'26'}
+          />
           <List>
             <EditableText
               tagName="div"
@@ -21,12 +29,12 @@ export default class componentName extends Component {
           <div className={style.infoCol}>
             <EditableText
               tagName="h2"
-              html="教育经历"
+              html="Education"
             />
             <List>
               <EditableText
                 tagName="div"
-                html={loremIpsum()}
+                html={'BeijingUniver'}
               />
             </List>
           </div>

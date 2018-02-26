@@ -4,7 +4,7 @@ import Template1 from './template/template1'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Template1 />
       </div>
     )

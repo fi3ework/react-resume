@@ -4,24 +4,13 @@ import 'bootstrap/dist/css/bootstrap.css'
 import style from './style.scss'
 import cs from 'classnames'
 
-// let W = class extends Component {
-//   render() {
-//     console.log(this.props)
-//     return (
-//       <div>
-//         {this.props.children}
-//       </div>
-//     )
-//   }
-// }
-
-
 export default class View extends Component {
   constructor(props) {
     super(props)
     this.state = {
       doesShowMenu: false,
-      doesExist: true
+      doesExist: true,
+      toRender: this.props.children
     }
   }
 
@@ -49,11 +38,20 @@ export default class View extends Component {
   }
 
   remove = () => {
-    console.log('remove')
-    this.hideMenu()
     this.setState({
       doesExist: false
     })
+    this.props.remove()
+  }
+
+  cloneBefore = () => {
+    console.log('clone before')
+    this.props.insertBefore(this.props.id)
+  }
+
+  cloneAfter = () => {
+    console.log('clone after')
+    this.props.insertAfter(this.props.id)
   }
 
   render() {
@@ -69,13 +67,13 @@ export default class View extends Component {
               [style['menu-show']]: this.state.doesShowMenu
             })}>
             <ButtonGroup>
+              <Button color="primary" onClick={this.cloneBefore} >之前插入</Button>
+              <Button color="primary" onClick={this.cloneAfter} >之后插入</Button>
               <Button color="primary" onClick={this.move} >移动</Button>
               <Button color="primary" onClick={this.remove} >删除</Button>
             </ButtonGroup>
           </div>
-          {/* <W onBlur={this.hideMenu}> */}
-          {this.props.children}
-          {/* </W> */}
+          {this.state.toRender}
         </div>
         : null
     )
