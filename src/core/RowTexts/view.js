@@ -10,5 +10,5 @@ export default (props) => {
       html={props[key]}
     />
   ))
-  return children
+  return <div {...props}>{children}</div>
 }

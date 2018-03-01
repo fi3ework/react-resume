@@ -57,6 +57,7 @@ export default class View extends Component {
         <li
           ref={(node) => { this.node = node }}
           onContextMenu={this.showMenu}
+          className={style.liWrapper}
         >
           <div
             className={cs({
@@ -67,7 +68,7 @@ export default class View extends Component {
               <Button color="primary" onClick={this.cloneBefore} >之前插入</Button>
               <Button color="primary" onClick={this.cloneAfter} >之后插入</Button>
               <Button color="primary" onClick={this.move} >移动</Button>
-              <Button color="primary" onClick={this.remove} >删除</Button>
+              <Button color="danger" onClick={this.remove} >删除</Button>
             </ButtonGroup>
           </div>
           {this.state.toRender}

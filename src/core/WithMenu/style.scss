@@ -1,7 +1,13 @@
+.liWrapper{
+  position: relative;
+}
+
 .menu{
   display: none;
+  position: absolute;
 }
 
 .menu-show{
+  top: -30px;
   display: block;
 }

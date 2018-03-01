@@ -88,7 +88,10 @@ export default class List extends Component {
 
   render() {
     return (
-      <ul className={style.container}>
+      <ul
+        className={style.container}
+        {...this.props}
+      >
         {this.renderChildren()}
       </ul>
     )
