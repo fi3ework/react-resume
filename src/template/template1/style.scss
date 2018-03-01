@@ -1,4 +1,4 @@
-$feature-color: #1bb28a;
+$feature-color: #519dcc;
 .cv {
   width: 100%;
   height: 100%;
@@ -13,8 +13,9 @@ $feature-color: #1bb28a;
 
 // ===== header ===== //
 .header {
-  background-color: $feature-color;
-  padding: 40px 80px 40px 80px;
+  // height: 100%;
+  // background-color: $feature-color;
+  // padding: 40px 80px 40px 80px;
   color: #fff;
 }
 
@@ -33,7 +34,7 @@ $feature-color: #1bb28a;
 
 .name {
   font-size: 60px;
-  margin-right: 20px;
+  margin: 40px 20px 40px 0;
 }
 
 .nickname {

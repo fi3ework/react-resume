@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 
 class EditableText extends Component {
+
+  avoidEmpty = () => {
+    if (this.textNode.innerHTML === '') {
+      this.textNode.innerHTML = 'Warning: Input something >_<'
+    }
+  }
+
   emit = (e) => {
     let html = this.textNode.innerHTML
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(html)
+      this.avoidEmpty()
+    } else {
+      this.avoidEmpty()
     }
   }
 
-  blur = (e) => {
-    console.log('blur')
-    if (typeof this.props.onBlur === 'function') {
-      this.props.onBlur()
-    }
-  }
 
   render() {
     let { tagName, html, ...props } = this.props
@@ -23,7 +27,6 @@ class EditableText extends Component {
         ref: (node) => { this.textNode = node },
         contentEditable: !this.props.disabled,
         onInput: this.emit,
-        onBlur: this.blur,
         dangerouslySetInnerHTML: { __html: html }
       })
     return text

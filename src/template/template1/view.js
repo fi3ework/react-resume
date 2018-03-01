@@ -1,71 +1,80 @@
 import React, { Component } from 'react'
 import A4 from '../baseTemplate'
-import { EditableText, List, RowTexts } from '../../core'
+import { EditableText, List, RowTexts, HeaderPic } from '../../core'
 import loremIpsum from 'lorem-ipsum'
 import style from './style.scss'
+import cs from 'classnames'
 
 export default class componentName extends Component {
   render() {
     return (
       <A4>
-        <article className={style.cv}>
-          <header className={style.header}>
-            <div className={style.nameAndProfession}>
-              <div className={style.names}>
+        <article className={cs({
+          [style.cv]: true,
+          exportRoot: true
+        })}>
+          <HeaderPic style={{
+            padding: '40px 40px 40px 40px'
+          }}>
+            <header className={style.header}>
+              <div className={style.nameAndProfession}>
+                <div className={style.names}>
+                  <EditableText
+                    tagName="h1"
+                    html={'Wee'}
+                    className={style.name}
+                  />
+                  <EditableText
+                    tagName="h2"
+                    html={'fi3ework'}
+                    className={style.nickname}
+                  />
+                </div>
                 <EditableText
-                  tagName="h1"
-                  html={'Wee'}
-                  className={style.name}
-                />
-                <EditableText
-                  tagName="h2"
-                  html={'fi3ework'}
-                  className={style.nickname}
-                />
-              </div>
-              <EditableText
-                tagName="p"
-                html={'Frond-end engineer'}
-                className={style.profession}
-              />
-            </div>
-            <div className={style.profileAndContact}>
-              <div className={style.profile}>
-                <EditableText
-                  tagName="span"
-                  html={'男 / 1992.2'}
-                  className={style.info}
-                />
-                <EditableText
-                  tagName="span"
-                  html={'北京理工大学 · 仪器科学与技术'}
-                  className={style.info}
-                />
-                <EditableText
-                  tagName="span"
-                  html={'硕士 / 2017年毕业'}
-                  className={style.info}
+                  tagName="p"
+                  html={'Frond-end engineer'}
+                  className={style.profession}
                 />
               </div>
-              <div className={style.contact}>
-                <EditableText
-                  tagName="span"
-                  html={'1851529****'}
-                  className={style.info}
-                />
-                <EditableText
-                  tagName="span"
-                  html={'8058*****@qq.com'}
-                  className={style.info}
-                />
-                <EditableText
-                  tagName="span"
-                  html={'github.com/fi3ework'}
-                  className={style.info}
-                />
+              <div className={style.profileAndContact}>
+                <div className={style.profile}>
+                  <EditableText
+                    tagName="span"
+                    html={'男 / 1992.2'}
+                    className={style.info}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'北京理工大学 · 仪器科学与技术'}
+                    className={style.info}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'硕士 / 2017年毕业'}
+                    className={style.info}
+                  />
+                </div>
+                <div className={style.contact}>
+                  <EditableText
+                    tagName="span"
+                    html={'1851529****'}
+                    className={style.info}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'8058*****@qq.com'}
+                    className={style.info}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'github.com/fi3ework'}
+                    className={style.info}
+                  />
+                </div>
               </div>
-            </div>
-          </header>
+            </header>
+          </HeaderPic>
+
           <main className={style.main}>
             <div className={style.sections}>
               <section className={style.section}>
@@ -168,21 +177,25 @@ export default class componentName extends Component {
               <section className={style.section}>
                 <EditableText
                   tagName="h2"
-                  html={'Skill'}
+                  html={'Skills And Qualifications'}
                   className={style.sectionTitle}
                 />
                 <List className={style.list}>
                   <EditableText
                     tagName="span"
-                    html={'HTML/CSS/JavaScript'}
+                    html={'Proficient understanding of web markup, including HTML5, CSS3'}
                   />
                   <EditableText
                     tagName="span"
-                    html={'jQuery/Sass/Bootstrap'}
+                    html={'Basic understanding of server-side CSS pre-processing platforms, such as LESS and SASS'}
                   />
                   <EditableText
                     tagName="span"
-                    html={'React/Vue/AngularJS'}
+                    html={'Proficient understanding of client-side scripting and JavaScript frameworks, including jQuery'}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'Basic knowledge of image authoring tools, to be able to crop, resize, or perform small adjustments on an image. Familiarity with tools such as as Gimp or Photoshop is a plus.'}
                   />
                 </List>
               </section>

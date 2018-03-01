@@ -18,7 +18,6 @@ export default class List extends Component {
   renderChildren = () => {
     let list = []
     let sequence = this.state.idSequence
-    console.log(sequence)
     for (let i = 0; i < sequence.length; i++) {
       let currItem
       if (sequence[i] >= 0 &&
@@ -74,7 +73,6 @@ export default class List extends Component {
   }
 
   removeItem = (id) => {
-    console.log(this.state.idSequence.length)
     if (this.state.idSequence.length === 1) {
       return
     }
