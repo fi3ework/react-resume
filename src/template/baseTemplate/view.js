@@ -43,13 +43,13 @@ export default class componentName extends Component {
           <div className={style.buttonWrapper}>
             <RaisedButton
               label="EXPORT TO PNG"
-              icon={<FontIcon className="material-icons">ic_assistant</FontIcon>}
-              // icon={<FontIcon className="ic_assistant" />}
+              icon={<FontIcon className="fa fa-image" style={{ fontSize: '20px' }} />}
               onClick={this.toPNG}
             />
             <RaisedButton
               label="EXPORT TO PDF"
               onClick={this.toPNG}
+              icon={<FontIcon className="fa fa-file-pdf" style={{ fontSize: '18px' }} />}
               style={{ marginLeft: '10px' }}
             />
           </div>
