@@ -4,7 +4,7 @@ class EditableText extends Component {
 
   avoidEmpty = () => {
     if (this.textNode.innerHTML === '') {
-      this.textNode.innerHTML = 'Warning: Input something >_<'
+      this.textNode.innerHTML = '⚠️'
     }
   }
 
@@ -27,6 +27,7 @@ class EditableText extends Component {
         ref: (node) => { this.textNode = node },
         contentEditable: !this.props.disabled,
         onInput: this.emit,
+        spellCheck: 'false',
         dangerouslySetInnerHTML: { __html: html }
       })
     return text

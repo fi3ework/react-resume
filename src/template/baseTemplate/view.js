@@ -1,19 +1,23 @@
 import style from './style.scss'
 import React, { Component } from 'react'
 import cs from 'classnames'
-import domtoimage from 'dom-to-image'
 import fileSaver from 'file-saver'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import FontIcon from 'material-ui/FontIcon'
-import { Base64 } from 'js-base64'
-import img2pdf from 'jspdf'
+import html2canvas from 'html2canvas'
+import JsPDF from 'jspdf'
 
 export default class componentName extends Component {
+
+
   componentDidMount = () => {
+    this.setState({
+      toRenderElement: document.querySelector('.exportRoot')
+    })
     let menus = document.getElementsByClassName('menu')
-    console.log(menus)
-    document.getElementsByClassName('a4')[0].addEventListener('click', (e) => {
+    document.body.addEventListener('click', (e) => {
+      console.log('click');
       [...menus].forEach((item) => {
         item.style.display = 'none'
       })
@@ -21,19 +25,30 @@ export default class componentName extends Component {
   }
 
   toPNG = () => {
-    let element = document.getElementsByClassName('exportRoot')[0]
-    domtoimage.toBlob(element)
-      .then(function (blob) {
+    console.log(this.state)
+
+    html2canvas(this.state.toRenderElement).then(function (canvas) {
+      canvas.toBlob((blob) => {
         fileSaver.saveAs(blob, 'react-resume.png')
       })
+    })
   }
 
   toPDF = () => {
-    let element = document.getElementsByClassName('exportRoot')[0]
-    domtoimage.toBlob(element)
-      .then(function (blob) {
-        fileSaver.saveAs(blob, 'react-resume.png')
-      })
+    html2canvas(this.state.toRenderElement).then(function (canvas) {
+      // let ctx = canvas.getContext('2d')
+      // ctx.mozImageSmoothingEnabled = false
+      // ctx.webkitImageSmoothingEnabled = false
+      // ctx.msImageSmoothingEnabled = false
+      // ctx.imageSmoothingEnabled = false
+      console.log(canvas)
+      return canvas.toDataURL()
+    }).then(function(dataURL) {
+      let doc = new JsPDF('p', 'pt', 'a4')
+      doc.addImage(dataURL, 'png', -5, 0, 600, 900)
+      doc.save('sample-file.pdf')
+    })
+
   }
 
   render() {
@@ -48,8 +63,8 @@ export default class componentName extends Component {
             />
             <RaisedButton
               label="EXPORT TO PDF"
-              onClick={this.toPNG}
               icon={<FontIcon className="fa fa-file-pdf" style={{ fontSize: '18px' }} />}
+              onClick={this.toPDF}
               style={{ marginLeft: '10px' }}
             />
           </div>

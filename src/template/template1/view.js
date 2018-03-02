@@ -74,7 +74,6 @@ export default class componentName extends Component {
               </div>
             </header>
           </HeaderPic>
-
           <main className={style.main}>
             <div className={style.sections}>
               <section className={style.section}>
@@ -83,7 +82,7 @@ export default class componentName extends Component {
                   html={'Education'}
                   className={style.sectionTitle}
                 />
-                <List className={style.list}>
+                <List className={style.educationList}>
                   <RowTexts
                     text1="2010.8 - 2014.8"
                     text2="Tsinghua University"
@@ -104,7 +103,7 @@ export default class componentName extends Component {
                   html={'Internship'}
                   className={style.sectionTitle}
                 />
-                <List className={style.list}>
+                <List className={style.massiveList}>
                   <div className={style.listItem}>
                     <RowTexts
                       text1="COMPANY-A"
@@ -143,7 +142,7 @@ export default class componentName extends Component {
                   html={'Projects'}
                   className={style.sectionTitle}
                 />
-                <List className={style.list}>
+                <List className={style.massiveList}>
                   <div className={style.listItem}>
                     <RowTexts
                       text1="hexo-theme-archer"
@@ -153,7 +152,7 @@ export default class componentName extends Component {
                     <EditableText
                       tagName="span"
                       html={loremIpsum({
-                        count: 5,
+                        count: 7,
                         units: 'sentences'
                       })}
                     />
@@ -167,7 +166,7 @@ export default class componentName extends Component {
                     <EditableText
                       tagName="span"
                       html={loremIpsum({
-                        count: 5,
+                        count: 7,
                         units: 'sentences'
                       })}
                     />
@@ -180,7 +179,12 @@ export default class componentName extends Component {
                   html={'Skills And Qualifications'}
                   className={style.sectionTitle}
                 />
-                <List className={style.list}>
+                <List className={
+                  cs({
+                    [style.massiveList]: true,
+                    [style.skillList]: true
+                  })
+                }>
                   <EditableText
                     tagName="span"
                     html={'Proficient understanding of web markup, including HTML5, CSS3'}
@@ -191,11 +195,15 @@ export default class componentName extends Component {
                   />
                   <EditableText
                     tagName="span"
-                    html={'Proficient understanding of client-side scripting and JavaScript frameworks, including jQuery'}
+                    html={'Deep knowledge of ES6, CSS and Browser capabilities (you love MDN, CanIUse)'}
                   />
                   <EditableText
                     tagName="span"
-                    html={'Basic knowledge of image authoring tools, to be able to crop, resize, or perform small adjustments on an image. Familiarity with tools such as as Gimp or Photoshop is a plus.'}
+                    html={'Championed the usage of JQuery across the Provide family of brands.'}
+                  />
+                  <EditableText
+                    tagName="span"
+                    html={'Experience with front-end build systems (Node.js, WebPack, Babel, etc.)'}
                   />
                 </List>
               </section>

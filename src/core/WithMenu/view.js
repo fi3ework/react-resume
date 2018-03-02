@@ -20,15 +20,9 @@ export default class View extends Component {
   showMenu = (e) => {
     console.log('show')
     this.menu.style.display = 'block'
-    // console.log(e.clientX)
-    // console.log(e.clientY)
-    // this.setState({
-    // doesShowMenu: true,
-    // menuPositon: {
-    //   x: e.clientX,
-    //   y: e.clientY
-    // }
-    // })
+    this.setState({
+      doesShowMenu: true,
+    })
   }
 
   hideMenu = (e) => {
@@ -43,19 +37,31 @@ export default class View extends Component {
     this.hideMenu()
   }
 
+  moveUp = () => {
+    console.log('moveUp')
+    this.props.moveUp(this.props.index)
+    this.hideMenu()
+  }
+
+  moveDown = () => {
+    console.log('moveDown')
+    this.props.moveDown(this.props.index)
+    this.hideMenu()
+  }
+
   remove = () => {
-    this.props.removeItem(this.props.id)
+    this.props.removeItem(this.props.index)
   }
 
   cloneBefore = () => {
     console.log('clone before')
-    this.props.insertBefore(this.props.id)
+    this.props.insertBefore(this.props.index)
     this.hideMenu()
   }
 
   cloneAfter = () => {
     console.log('clone after')
-    this.props.insertAfter(this.props.id)
+    this.props.insertAfter(this.props.index)
     this.hideMenu()
   }
 
@@ -79,10 +85,11 @@ export default class View extends Component {
               display: 'none'
             }}
           >
-            <RaisedButton key="insertBefore" color="primary" onClick={this.cloneBefore} label={'之前插入'} />
-            <RaisedButton key="insertAfter" color="primary" onClick={this.cloneAfter} label={'之后插入'} />
-            <RaisedButton key="move" color="primary" onClick={this.move} label={'移动'} />
-            <RaisedButton key="delete" color="danger" onClick={this.remove} label={'删除'} labelColor={'#fff'} backgroundColor={'#da3849'} />
+            <RaisedButton key="insertBefore" color="primary" onClick={this.cloneBefore} label={'insert before'} />
+            <RaisedButton key="insertAfter" color="primary" onClick={this.cloneAfter} label={'insert after'} />
+            <RaisedButton key="moveUp" color="primary" onClick={this.moveUp} label={'move up'} />
+            <RaisedButton key="moveDown" color="primary" onClick={this.moveDown} label={'move down'} />
+            <RaisedButton key="delete" color="danger" onClick={this.remove} label={'delete'} labelColor={'#fff'} backgroundColor={'#da3849'} />
           </div>
           {this.props.children}
         </li>

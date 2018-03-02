@@ -8,14 +8,10 @@ $feature-color: #519dcc;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   color: #595959;
   font-weight: 200;
-  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.5);
 }
 
 // ===== header ===== //
 .header {
-  // height: 100%;
-  // background-color: $feature-color;
-  // padding: 40px 80px 40px 80px;
   color: #fff;
 }
 
@@ -66,55 +62,53 @@ $feature-color: #519dcc;
 
 // main
 .main {
-  flex-grow: 1;
-  padding: 40px 80px 20px 80px; // height: 100%;
+  padding: 20px 80px 20px 80px;
 }
 
 .sections {
-  // column-count: 2; //  column-width: 75%;
-  //  column-gap: 20%;
   display: flex;
-  // flex-wrap: wrap;
-  flex-direction: column; // align-items: stretch;
-  // min-height: 1200px;
-  // width: 100%;
-  height: 600px; // width: 40%;
-  // height: 900px;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1300px;
+  line-height: 1.625;
 }
 
 .section {
   width: 100%;
-  // display: inline-block;
-  // height: 40px;
-  // height: 200px;
 }
 
 .sectionTitle {
-  margin: 25px 0 10px 0;
-  // display: inline;
-  // display: inline-block;
+  margin: 15px 0 15px 0;
   line-height: 1.4;
   color: $feature-color;
-  // background-color: #eee;
   border-bottom: 2px solid #eee;
-  // border-radius: 10px;
   padding: 0 0 5px 0;
-  // text-align: center;
 }
 
-.list {
+.list,
+.massiveList,
+.educationList {
   font-size: 20px;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.listItem {
-  margin: 0 0 20px 0;
+.massiveList>li {
+  margin: 0 0 15px 0;
 }
 
-.listItem:last-of-type {
-  // margin: 0;
+.skillList>li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.massiveList>li:last-of-type {
+  margin: 0;
+}
+
+.listItem {
+  margin: 0 0 20px 0;
 }
 
 .rowTexts {
