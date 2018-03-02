@@ -14,7 +14,7 @@ export default class componentName extends Component {
           exportRoot: true
         })}>
           <HeaderPic style={{
-            padding: '40px 40px 40px 40px'
+            padding: '20px 40px 40px 40px'
           }}>
             <header className={style.header}>
               <div className={style.nameAndProfession}>

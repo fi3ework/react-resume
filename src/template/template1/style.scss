@@ -19,8 +19,8 @@ $feature-color: #519dcc;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .names {
@@ -30,11 +30,12 @@ $feature-color: #519dcc;
 
 .name {
   font-size: 60px;
-  margin: 40px 20px 40px 0;
+  margin: 20px 20px 10px 0;
 }
 
 .nickname {
   font-size: 30px;
+  margin: 0;
 }
 
 .profession {
@@ -45,19 +46,22 @@ $feature-color: #519dcc;
 .profileAndContact {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .profile {
   display: flex;
   flex-direction: column;
   font-size: 18px;
+  line-height: 1.625;
 }
 
 .contact {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-size: 15px;
+  font-size: 18px;
+  line-height: 1.625;
 }
 
 // main
@@ -79,6 +83,7 @@ $feature-color: #519dcc;
 
 .sectionTitle {
   margin: 15px 0 15px 0;
+  font-size: 30px; 
   line-height: 1.4;
   color: $feature-color;
   border-bottom: 2px solid #eee;
