@@ -67,13 +67,14 @@ $feature-color: #519dcc;
 // main
 .main {
   padding: 20px 80px 20px 80px;
+  flex-grow: 1;
 }
 
 .sections {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 1300px;
+  height: 1400px;
   line-height: 1.625;
 }
 

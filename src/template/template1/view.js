@@ -40,17 +40,17 @@ export default class componentName extends Component {
                 <div className={style.profile}>
                   <EditableText
                     tagName="span"
-                    html={'男 / 1992.2'}
+                    html={'Male / Tianjin / 1992.2'}
                     className={style.info}
                   />
                   <EditableText
                     tagName="span"
-                    html={'北京理工大学 · 仪器科学与技术'}
+                    html={'Beijing Institute of Technology / Instrument science and technology'}
                     className={style.info}
                   />
                   <EditableText
                     tagName="span"
-                    html={'硕士 / 2017年毕业'}
+                    html={'master / graduated in 2017'}
                     className={style.info}
                   />
                 </div>
@@ -85,14 +85,14 @@ export default class componentName extends Component {
                 <List className={style.educationList}>
                   <RowTexts
                     text1="2010.8 - 2014.8"
-                    text2="Tsinghua University"
-                    text3="Computer Science"
+                    text2="Beijing Institute of Technology"
+                    text3="Major-A"
                     className={style.rowTexts}
                   />
                   <RowTexts
                     text1="2014.8 - 2017.3"
-                    text2="Peking University"
-                    text3="Computer Science"
+                    text2="Beijing Institute of Technology"
+                    text3="Major-B"
                     className={style.rowTexts}
                   />
                 </List>
