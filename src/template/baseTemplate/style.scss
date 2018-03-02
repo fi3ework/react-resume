@@ -1,13 +1,22 @@
-.a4{
-  display: flex;
-  justify-content: space-between;
-  margin: 50px auto;
-  width: 1240px;
-  height: 1754px;
-  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.5);  
+:global {
+  body {
+    background-color: #eee;
+  }
 }
 
-.buttonWrapper{
+.a4 {
+  margin: 40px auto;
+  width: 1240px;
+  height: 1754px;
+}
+
+.buttonWrapper {
   margin: 40px auto 0 auto;
   text-align: center;
+}
+
+.helperWrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
 }

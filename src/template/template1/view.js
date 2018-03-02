@@ -40,7 +40,7 @@ export default class componentName extends Component {
                 <div className={style.profile}>
                   <EditableText
                     tagName="span"
-                    html={'Male / Tianjin / 1992.2'}
+                    html={'Male / China / 1992.2'}
                     className={style.info}
                   />
                   <EditableText
