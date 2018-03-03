@@ -2,6 +2,11 @@
   body {
     background-color: #eee;
   }
+
+  .hide-scrollbar {
+    overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
+  }
 }
 
 .a4 {
@@ -20,3 +25,4 @@
   text-align: center;
   margin-bottom: 60px;
 }
+

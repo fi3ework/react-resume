@@ -21,11 +21,17 @@ export default class componentName extends Component {
     })
   }
 
+  hideSidebar(saveFile) {
+    document.body.classList.add('hide-scrollbar')
+    document.body.classList.remove('hide-scrollbar')
+  }
+
   toPNG = () => {
     this.setState({
       isEncoding: true
     })
     let self = this
+    document.body.classList.add('hide-scrollbar')
     html2canvas(this.state.toRenderElement).then(function (canvas) {
       canvas.toBlob((blob) => {
         fileSaver.saveAs(blob, 'react-resume.png')
@@ -34,6 +40,7 @@ export default class componentName extends Component {
         isEncoding: false
       })
     })
+    document.body.classList.remove('hide-scrollbar')
   }
 
   toPDF = () => {
@@ -41,17 +48,19 @@ export default class componentName extends Component {
       isEncoding: true
     })
     let self = this
+    document.body.classList.add('hide-scrollbar')
     html2canvas(this.state.toRenderElement).then(function (canvas) {
       console.log(canvas)
       return canvas.toDataURL()
     }).then(function (dataURL) {
       let doc = new JsPDF('p', 'pt', 'a4')
-      doc.addImage(dataURL, 'png', -5, 0, 600, 842)
+      doc.addImage(dataURL, 'png', 0, 0, 600, 842)
       doc.save('react-resume.pdf')
       self.setState({
         isEncoding: false
       })
     })
+    document.body.classList.remove('hide-scrollbar')
   }
 
   render() {
