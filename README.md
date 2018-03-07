@@ -1,10 +1,8 @@
-# react-resume
-
 ## Intro
 
-🗳 **A simple React App to custom and save a resume online.**
+**react-resume is a simple React App to custom and save a resume online.**
 
-You can do these with it:
+You can do the followings with it:
 
 ✏️ Use the resume template provided  to edit and save your resume directly.
 

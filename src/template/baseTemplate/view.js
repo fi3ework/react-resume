@@ -9,7 +9,6 @@ export default class componentName extends Component {
   componentDidMount = () => {
     let menus = document.getElementsByClassName('menu')
     document.body.addEventListener('click', (e) => {
-      console.log('click');
       [...menus].forEach((item) => {
         item.style.display = 'none'
       })

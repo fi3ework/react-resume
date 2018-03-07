@@ -37,7 +37,7 @@ export default class componentName extends Component {
                 />
               </div>
               <div className={style.profileAndContact}>
-                <div className={style.profile}>
+                <List className={style.profile}>
                   <EditableText
                     tagName="span"
                     html={'Male / China / 1992.2'}
@@ -53,8 +53,8 @@ export default class componentName extends Component {
                     html={'master / graduated in 2017'}
                     className={style.info}
                   />
-                </div>
-                <div className={style.contact}>
+                </List>
+                <List className={style.contact}>
                   <EditableText
                     tagName="span"
                     html={'1851529****'}
@@ -70,7 +70,7 @@ export default class componentName extends Component {
                     html={'github.com/fi3ework'}
                     className={style.info}
                   />
-                </div>
+                </List>
               </div>
             </header>
           </HeaderPic>

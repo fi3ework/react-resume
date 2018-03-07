@@ -100,6 +100,13 @@ $feature-color: #519dcc;
   padding: 0;
 }
 
+.profile,
+.contact {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .massiveList>li {
   margin: 0 0 15px 0;
 }

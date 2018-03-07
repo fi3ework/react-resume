@@ -9,7 +9,6 @@ export default class View extends Component {
     this.state = {
       doesShowMenu: false,
       doesExist: true,
-      menuPositon: { x: -1, y: -1 }
     }
   }
 
@@ -85,11 +84,11 @@ export default class View extends Component {
               display: 'none'
             }}
           >
-            <RaisedButton key="insertBefore" color="primary" onClick={this.cloneBefore} label={'insert before'} />
-            <RaisedButton key="insertAfter" color="primary" onClick={this.cloneAfter} label={'insert after'} />
-            <RaisedButton key="moveUp" color="primary" onClick={this.moveUp} label={'move up'} />
-            <RaisedButton key="moveDown" color="primary" onClick={this.moveDown} label={'move down'} />
-            <RaisedButton key="delete" color="danger" onClick={this.remove} label={'delete'} labelColor={'#fff'} backgroundColor={'#da3849'} />
+            <RaisedButton key="insertBefore" color="primary" onClick={this.cloneBefore} label={'➕📍'} />
+            <RaisedButton key="insertAfter" color="primary" onClick={this.cloneAfter} label={'📍➕'} />
+            <RaisedButton key="moveUp" color="primary" onClick={this.moveUp} label={'🔼'} />
+            <RaisedButton key="moveDown" color="primary" onClick={this.moveDown} label={'🔽'} />
+            <RaisedButton key="delete" color="danger" onClick={this.remove} label={'❌'} labelColor={'#fff'} backgroundColor={'#da3849'} />
           </div>
           {this.props.children}
         </li>
