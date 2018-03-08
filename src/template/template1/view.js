@@ -6,6 +6,20 @@ import style from './style.scss'
 import cs from 'classnames'
 
 export default class componentName extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      cv: {
+        name: 'Wee',
+        nickname: 'fi3ework',
+      }
+    }
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+
+  }
+
   render() {
     return (
       <A4>
@@ -21,12 +35,13 @@ export default class componentName extends Component {
                 <div className={style.names}>
                   <EditableText
                     tagName="h1"
-                    html={'Wee'}
+                    html={this.state.cv.name}
                     className={style.name}
+                    onInput={(name) => { console.log('new name ' + name) }}
                   />
                   <EditableText
                     tagName="h2"
-                    html={'fi3ework'}
+                    html={this.state.cv.nickname}
                     className={style.nickname}
                   />
                 </div>

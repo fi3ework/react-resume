@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Paper from 'material-ui/Paper'
 import style from './style.scss'
 import FontIcon from 'material-ui/FontIcon'
-
+import cs from 'classnames'
 const paperStyle = {
   width: 1240,
   margin: '0 auto',
@@ -16,7 +16,11 @@ const paperStyle = {
 export default class componentName extends Component {
   render() {
     return (
-      <div className={style.helperWrapper}>
+      <div className={cs({
+        helperWrapper: true,
+        [style.helperWrapper]: true
+      })}>
+
         <Paper style={paperStyle} zDepth={2} rounded={false}>
           <FontIcon className="fa fa-mouse-pointer" style={{ fontSize: '20px', color: '#aaa', marginRight: 10 }} />
           Right click on a list item to add/remove/reorder items.

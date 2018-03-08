@@ -12,7 +12,7 @@ class EditableText extends Component {
     let unparsed = this.textNode.innerHTML
     console.log(unparsed)
     this.textNode.innerHTML = unparsed.replace(/\[(.*)]\((.*)\)/g, (match, p1, p2) => {
-      return `<a href="${p2}" target="_blank">${p1}</a>`
+      return `<a class="linked-editable" href="${p2}" target="_blank">${p1}</a>`
     })
   }
 
@@ -33,12 +33,10 @@ class EditableText extends Component {
 
   emit = (e) => {
     let html = this.textNode.innerHTML
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(html)
-      this.avoidEmpty()
-    } else {
-      this.avoidEmpty()
+    if (typeof this.props.onInput === 'function') {
+      this.props.onInput(html)
     }
+    this.avoidEmpty()
   }
 
   render() {
