@@ -82,7 +82,7 @@ export default class componentName extends Component {
                   />
                   <EditableText
                     tagName="span"
-                    html={'github.com/fi3ework'}
+                    html={'[GitHub](https://github.com/fi3ework) github.com/fi3ework'}
                     className={style.info}
                   />
                 </List>
