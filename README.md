@@ -22,9 +22,13 @@ Star if you like it 😚
 
 ## Usage
 
-1. Left click on a text to edit it.
-2. Right click on a item in a list to popup the menu, you can add an item or move up / move down / delete the clicked item.
-3. Component with picture can load local image by left clicking itself or the hover button.
+- Left click on a text to edit it.
+- Right click on a item in a list to popup the menu, you can add an item or move up / move down / delete the clicked item.
+- Component with picture can load local image by left clicking itself or the hover button.
+
+## Syntax
+
+- Link: use markdown syntax `[]()` to input a link directly.
 
 ## Develop
 
