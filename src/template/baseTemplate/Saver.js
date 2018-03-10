@@ -22,50 +22,42 @@ export default class componentName extends Component {
     })
   }
 
+  getTimeStampStr = () => {
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = String(date.getMonth()).padStart(2, '0')
+    let day = String(date.getDay()).padStart(2, '0')
+    let hour = String(date.getHours()).padStart(2, '0')
+    let minute = String(date.getMinutes()).padStart(2, '0')
+    let second = String(date.getSeconds()).padStart(2, '0')
+    return ` - ${year}${month}${day}${hour}${minute}${second}`
+  }
+
+  appendDateStamp = (str) => {
+    let dotIndex = str.indexOf('.')
+    if (dotIndex === -1) {
+      return str
+    }
+    console.log('dddd')
+    return str.slice(0, dotIndex) + this.getTimeStampStr() + str.slice(dotIndex)
+  }
+
   hideSidebar(saveFile) {
     document.body.classList.add('hide-scrollbar')
     document.body.classList.remove('hide-scrollbar')
-  }
-
-  exportHTML(name, data) {
-    let urlObject = window.URL || window.webkitURL || window
-    let export_blob = new Blob([data])
-    fileSaver.saveAs(export_blob, 'react-resume.html')
-    let save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a')
-    save_link.href = urlObject.createObjectURL(export_blob)
-    save_link.download = name
-  }
-
-  toHTML = () => {
-    let docClone = document.cloneNode(true);
-    // disable contentEditable
-    [...docClone.querySelectorAll('[contentEditable="true"]')].forEach(node => {
-      node.contentEditable = false
-    })
-    // remove header and footer
-    docClone.querySelector('.saverWrapper').remove()
-    docClone.querySelector('.helperWrapper').remove()
-    docClone.querySelector('input').remove()
-    fileSaver.saveAs(
-      new Blob(
-        [(new XMLSerializer()).serializeToString(docClone)]
-        , { type: 'application/xhtml+xml;charset=' + document.characterSet }
-      )
-      , 'react-resume.html'
-    )
   }
 
   toPNG = () => {
     this.setState({
       isEncoding: true
     })
-    let self = this
+    let that = this
     document.body.classList.add('hide-scrollbar')
     html2canvas(this.state.toRenderElement).then(function (canvas) {
       canvas.toBlob((blob) => {
-        fileSaver.saveAs(blob, 'react-resume.png')
+        fileSaver.saveAs(blob, that.appendDateStamp('react-resume.png'))
       })
-      self.setState({
+      that.setState({
         isEncoding: false
       })
     })
@@ -76,20 +68,56 @@ export default class componentName extends Component {
     this.setState({
       isEncoding: true
     })
-    let self = this
+    let that = this
     document.body.classList.add('hide-scrollbar')
     html2canvas(this.state.toRenderElement).then(function (canvas) {
-      console.log(canvas)
       return canvas.toDataURL()
     }).then(function (dataURL) {
       let doc = new JsPDF('p', 'pt', 'a4')
       doc.addImage(dataURL, 'png', 0, 0, 600, 842)
-      doc.save('react-resume.pdf')
-      self.setState({
+      doc.save(that.appendDateStamp('react-resume.pdf'))
+      that.setState({
         isEncoding: false
       })
     })
     document.body.classList.remove('hide-scrollbar')
+  }
+
+  toHTML = () => {
+    this.setState({
+      isEncoding: true
+    })
+
+    let clonedDoc = document.cloneNode(true);
+    // disable contentEditable
+    [...clonedDoc.querySelectorAll('[contentEditable="true"]')].forEach(node => {
+      node.contentEditable = false
+    })
+    // remove header and footer
+    clonedDoc.querySelector('.saverWrapper').remove()
+    clonedDoc.querySelector('.helperWrapper').remove()
+
+    document.body.classList.add('hide-scrollbar')
+    let oriBg = document.querySelector('.bgImg')
+    let clonedBg = clonedDoc.querySelector('.bgImg')
+    html2canvas(oriBg).then(function (canvas) {
+      let base64 = canvas.toDataURL()
+      clonedBg.setAttribute('src', base64)
+      document.body.classList.remove('hide-scrollbar')
+    }).then(
+      () => {
+        fileSaver.saveAs(
+          new Blob(
+            [(new XMLSerializer()).serializeToString(clonedDoc)]
+            , { type: 'application/xhtml+xml;charset=' + document.characterSet }
+          )
+          , this.appendDateStamp('react-resume.html')
+        )
+        this.setState({
+          isEncoding: false
+        })
+      }
+    )
   }
 
   render() {
@@ -117,11 +145,10 @@ export default class componentName extends Component {
         />
         <Dialog
           title="🚧"
-          // actions={actions}
           modal={true}
           open={this.state.isEncoding}
         >
-          😚 File is encoding, please wait...
+          😚 FILE IS BEING TRANSCODED, PLEASE WAIT.
         </Dialog>
       </div>
     )

@@ -129,7 +129,7 @@ export default class componentName extends Component {
                     <EditableText
                       tagName="span"
                       html={loremIpsum({
-                        count: 5,
+                        count: 6,
                         units: 'sentences'
                       })}
                     />
@@ -144,7 +144,7 @@ export default class componentName extends Component {
                     <EditableText
                       tagName="span"
                       html={loremIpsum({
-                        count: 5,
+                        count: 6,
                         units: 'sentences'
                       })}
                     />
@@ -161,7 +161,7 @@ export default class componentName extends Component {
                   <div className={style.listItem}>
                     <RowTexts
                       text1="hexo-theme-archer"
-                      text2="JavsScript"
+                      text2="JavsScript [GitHub Link](https://github.com/fi3ework/hexo-theme-archer)"
                       className={style.rowTexts}
                     />
                     <EditableText
@@ -175,7 +175,7 @@ export default class componentName extends Component {
                   <div className={style.listItem}>
                     <RowTexts
                       text1="react-resume"
-                      text2="React"
+                      text2="React [GitHub Link](https://github.com/fi3ework/react-resume)"
                       className={style.rowTexts}
                     />
                     <EditableText

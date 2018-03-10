@@ -8,14 +8,14 @@ You can do the followings with it:
 
 🛠 Use component library to custom your own template and edit the content when you want to renew the resume.
 
-📨 Save the resume to local in the format of PNG or PDF ( however, the file size of PDF is still large )
+📨 Save the resume to local in the format of PNG, PDF and HTML ( however, the file size of PDF is still large )
 
 Star if you like it 😚
 
 **Todo:**
 
 - [ ] Use localStorage to save the progress of editing
-- [ ] Save resume to html file with inline-style
+- [x] Save resume to html file with inline-style
 - [ ] Provide more built-in templates
 - [ ] Make component more standard and add documentation
 - [ ] Find a better way to generate PDF in smaller size ( hope so )

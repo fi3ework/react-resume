@@ -3,14 +3,14 @@ import Paper from 'material-ui/Paper'
 import style from './style.scss'
 import FontIcon from 'material-ui/FontIcon'
 import cs from 'classnames'
-const paperStyle = {
+const helperStyle = {
   width: 1240,
   margin: '0 auto',
   textAlign: 'center',
   display: 'inline-block',
-  padding: '30px 30px 30px 30px',
+  padding: '20px 30px 20px 30px',
   color: '#aaa',
-  fontSize: '20px'
+  fontSize: '16px'
 }
 
 export default class componentName extends Component {
@@ -21,9 +21,15 @@ export default class componentName extends Component {
         [style.helperWrapper]: true
       })}>
 
-        <Paper style={paperStyle} zDepth={2} rounded={false}>
-          <FontIcon className="fa fa-mouse-pointer" style={{ fontSize: '20px', color: '#aaa', marginRight: 10 }} />
-          Right click on a list item to add/remove/reorder items.
+        <Paper style={helperStyle} zDepth={2} rounded={false}>
+          <FontIcon className="fa fa-mouse-pointer" style={{ fontSize: '16px', color: '#aaa', marginRight: 10 }} />
+          Right click on a list item to
+          insert before ➕📍/
+          insert after 📍➕ /
+          move up 🔼 /
+          move down 🔽 /
+          remove ❌
+          items.
         </Paper>
         <div className={style.copyRightWrapper}>
           <a href={'https://github.com/fi3ework/react-resume'}

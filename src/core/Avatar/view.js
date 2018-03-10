@@ -28,7 +28,6 @@ export default class componentName extends Component {
         <img className={style.avatar}
           src={placeholder}
           ref={(node) => { this.img = node }}
-          onClick={() => { console.log(233) }}
         />
       </div>
     )

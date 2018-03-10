@@ -1,9 +1,6 @@
 .headerPicWrapper {
   position: relative;
   overflow: hidden;
-  &:hover .input{
-    display: block;
-  }
 }
 
 .bgImg {
@@ -15,34 +12,14 @@
   z-index: 1;
 }
 
-.children { 
+.children {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 3;
 }
 
-.input {
-  position: absolute;
-  outline: none;
-  width: 0px;
-  height: 0px;
-  right: 0;
-  top: 0;
-  z-index: 22;
-  display: none;
-  &::after{
-    content: 'Change cover';
-    display: block;
-    white-space: nowrap;
-    position: absolute;
-    color: rgba($color: #fff, $alpha: 0.8);
-    line-break: unset;
-    padding: 8px 12px;
-    font-size: 18px;
-    right: 20px;
-    top: 20px;
-    border-radius: 5px;
-    background-color: rgba($color: #000, $alpha: 0.5);
-  }
+input{
+  z-index: 999;
+  position: relative;
 }

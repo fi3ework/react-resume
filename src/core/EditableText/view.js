@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import style from './style.scss'
 class EditableText extends Component {
+  componentDidMount = () => {
+    this.encodeMD()
+  }
 
   avoidEmpty = () => {
     if (this.textNode.innerHTML === '') {
@@ -10,7 +13,6 @@ class EditableText extends Component {
 
   encodeMD = () => {
     let unparsed = this.textNode.innerHTML
-    console.log(unparsed)
     this.textNode.innerHTML = unparsed.replace(/\[(.*)]\((.*)\)/g, (match, p1, p2) => {
       return `<a class="linked-editable" href="${p2}" target="_blank">${p1}</a>`
     })
@@ -27,7 +29,6 @@ class EditableText extends Component {
   }
 
   blur = () => {
-    console.log('blur')
     this.textNode.innerHTML = this.mdParse(this.textNode.innerHTML)
   }
 
@@ -50,7 +51,7 @@ class EditableText extends Component {
         onFocus: this.decodeMD,
         onBlur: this.encodeMD,
         spellCheck: 'false',
-        dangerouslySetInnerHTML: { __html: html }
+        dangerouslySetInnerHTML: { __html: html },
       })
     return text
   }
