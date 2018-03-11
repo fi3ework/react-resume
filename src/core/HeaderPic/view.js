@@ -5,7 +5,6 @@ import cs from 'classnames'
 import ph from './placeholder.jpg'
 import FileReaderInput from 'react-file-reader-input'
 
-
 export default class componentName extends Component {
   constructor(props) {
     super(props)
@@ -15,26 +14,30 @@ export default class componentName extends Component {
     }
   }
 
-  upload = (e, results) => {
-    console.log('uploaded')
-    console.log(results)
-    // let file = results[0][1]
-    let reader = results[0][0].target
-    console.log(reader.result)
-    // let file = this.uploadNode.files[0]
-    // let reader = new FileReader()
-    // reader.readAsDataURL(file)
-    let that = this
+  piece(array, batchSize) {
+    let result = []
+    console.log(array.length)
+    for (let i = 0; i < array.length; i += batchSize) {
+      result.push(array.slice(i, i + batchSize))
+    }
+    return result
+  }
 
-    let blob = new Blob([reader.result], { type: 'image/jpeg' })
-    console.log(blob)
-    // reader.onload = function (e) {
-    console.log(e)
-    let urlCreator = window.URL || window.webkitURL
-    let imageUrl = urlCreator.createObjectURL(blob)
-    let src = imageUrl
-    that.img.setAttribute('src', src)
-    // }
+  _arrayBufferToBase64(buffer) {
+    let binary = ''
+    let bytes = new Uint8Array(buffer)
+    let len = bytes.byteLength
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i])
+    }
+    return window.btoa(binary)
+  }
+
+  upload = (e, results) => {
+    let reader = results[0][0].target
+    let that = this
+    let base64 = 'data:image/jpg;base64, ' + this._arrayBufferToBase64(reader.result)
+    that.img.setAttribute('src', base64)
   }
 
   render() {
