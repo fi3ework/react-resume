@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import style from './style.scss'
+
 class EditableText extends Component {
   componentDidMount = () => {
     this.encodeMD()
@@ -14,14 +15,25 @@ class EditableText extends Component {
   encodeMD = () => {
     let unparsed = this.textNode.innerHTML
     this.textNode.innerHTML = unparsed.replace(/\[(.*)]\((.*)\)/g, (match, p1, p2) => {
-      return `<a class="linked-editable" href="${p2}" target="_blank">${p1}</a>`
+      return `<span class="linked-editable">
+      <i class="iconfont icon-link1"></i>
+      <a href="${p2}" target="_blank">${p1}</a>
+      </span>`
     })
   }
 
   decodeMD = () => {
-    [...this.textNode.querySelectorAll('a')].forEach(currA => {
-      currA.outerHTML = `[${currA.innerHTML}](${currA.href})`
+    [...this.textNode.querySelectorAll('.linked-editable')].forEach(currLink => {
+      let aTag = currLink.querySelector('a')
+      currLink.outerHTML = `[${aTag.innerHTML}](${aTag.href})`
     })
+  }
+
+  onBlur = () => {
+    this.encodeMD()
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(this.textNode.innerHTML)
+    }
   }
 
   focus = () => {
@@ -49,7 +61,7 @@ class EditableText extends Component {
         contentEditable: !this.props.disabled,
         onInput: this.emit,
         onFocus: this.decodeMD,
-        onBlur: this.encodeMD,
+        onBlur: this.onBlur,
         spellCheck: 'false',
         dangerouslySetInnerHTML: { __html: html },
       })

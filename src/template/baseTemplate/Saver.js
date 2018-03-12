@@ -38,7 +38,6 @@ export default class componentName extends Component {
     if (dotIndex === -1) {
       return str
     }
-    console.log('dddd')
     return str.slice(0, dotIndex) + this.getTimeStampStr() + str.slice(dotIndex)
   }
 
@@ -128,18 +127,18 @@ export default class componentName extends Component {
       })}>
         <RaisedButton
           label="EXPORT TO PNG"
-          icon={<FontIcon className="fa fa-image" style={{ fontSize: '20px' }} />}
+          icon={<FontIcon className="iconfont icon-iconset0390" style={{ fontSize: '20px' }} />}
           onClick={this.toPNG}
         />
         <RaisedButton
           label="EXPORT TO PDF"
-          icon={<FontIcon className="fa fa-file-pdf" style={{ fontSize: '18px' }} />}
+          icon={<FontIcon className="iconfont icon-iconset0387" style={{ fontSize: '20px' }} />}
           onClick={this.toPDF}
           style={{ marginLeft: '10px' }}
         />
         <RaisedButton
           label="EXPORT TO HTML"
-          icon={<FontIcon className="fas fa-paperclip" style={{ fontSize: '18px' }} />}
+          icon={<FontIcon className="iconfont icon-html" style={{ fontSize: '18px' }} />}
           onClick={this.toHTML}
           style={{ marginLeft: '10px' }}
         />

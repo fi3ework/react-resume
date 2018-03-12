@@ -9,7 +9,6 @@ export default class componentName extends Component {
     reader.readAsDataURL(file)
     let that = this
     reader.onload = function(e) {
-      console.log(this.result)
       let src = this.result
       that.img.setAttribute('src', src)
     }

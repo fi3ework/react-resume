@@ -1,11 +1,22 @@
 :global{
   .linked-editable {
-    font-size: 12px;
-    color: #084c87;
+    font-size:8px;
+    color: #0e88eb;
     text-decoration: none;
-    border: 1px solid rgba($color: #084c87, $alpha: 1);
-    margin: 0 0 0 5px;
-    padding: 0 1px 0px 1px;
+    border: 1px solid rgba($color: #0e88eb, $alpha: 1);
+    margin: 0 5px 0 5px;
+    padding: 0 3px 0px 3px;
     border-radius: 3px;
+    .iconfont{
+      position: relative;
+      font-size: 18px;
+      margin-right: -2px;
+      top: 2px;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }

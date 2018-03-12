@@ -9,7 +9,7 @@ const helperStyle = {
   textAlign: 'center',
   display: 'inline-block',
   padding: '20px 30px 20px 30px',
-  color: '#aaa',
+  color: '#777',
   fontSize: '16px'
 }
 
@@ -22,7 +22,7 @@ export default class componentName extends Component {
       })}>
 
         <Paper style={helperStyle} zDepth={2} rounded={false}>
-          <FontIcon className="fa fa-mouse-pointer" style={{ fontSize: '16px', color: '#aaa', marginRight: 10 }} />
+          <FontIcon className="iconfont icon-click" style={{ fontSize: '27px', color: '#777', marginRight: 10 }} />
           Right click on a list item to
           insert before ➕📍/
           insert after 📍➕ /
@@ -37,7 +37,7 @@ export default class componentName extends Component {
             target="_black"
           >
             <FontIcon
-              className="fab fa-github"
+              className="iconfont icon-github"
               style={{ fontSize: '40px', color: '#aaa', margin: '20px 10px 0 0' }}
             />
           </a>

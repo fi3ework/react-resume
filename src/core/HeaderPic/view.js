@@ -16,7 +16,6 @@ export default class componentName extends Component {
 
   piece(array, batchSize) {
     let result = []
-    console.log(array.length)
     for (let i = 0; i < array.length; i += batchSize) {
       result.push(array.slice(i, i + batchSize))
     }

@@ -73,7 +73,6 @@ export default class List extends Component {
   }
 
   moveItem = () => {
-    console.log('move')
   }
 
   moveUpItem = (index) => {

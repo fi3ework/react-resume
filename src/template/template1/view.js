@@ -37,7 +37,6 @@ export default class componentName extends Component {
                     tagName="h1"
                     html={this.state.cv.name}
                     className={style.name}
-                    onInput={(name) => { console.log('new name ' + name) }}
                   />
                   <EditableText
                     tagName="h2"
@@ -82,7 +81,7 @@ export default class componentName extends Component {
                   />
                   <EditableText
                     tagName="span"
-                    html={'[GitHub](https://github.com/fi3ework) github.com/fi3ework'}
+                    html={'[Link](https://github.com/fi3ework) github.com/fi3ework'}
                     className={style.info}
                   />
                 </List>
