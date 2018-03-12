@@ -2,33 +2,34 @@
 
 **react-resume is a simple React App to custom and save a resume online.**
 
+[Edit now!](http://fi3ework.github.io/react-resume/build/# )
+
 You can do the followings with it:
 
-✏️ Use the resume template provided  to edit and save your resume directly.
+✏️ Use the provided  resume template to edit and save your own resume directly. You can even create a html link by `[]()` syntax.
 
 🛠 Use component library to custom your own template and edit the content when you want to renew the resume.
 
-📨 Save the resume to local in the format of PNG, PDF and HTML ( however, the file size of PDF is still large )
+📨 Save the resume to local file in the format of PNG, PDF and HTML.
 
 Star if you like it 😚
 
 **Todo:**
 
+- [x] ~~Save resume to html file with inline-style~~
+- [x] ~~Add icon for link~~
 - [ ] Use localStorage to save the progress of editing
-- [x] Save resume to html file with inline-style
 - [ ] Provide more built-in templates
-- [ ] Make component more standard and add documentation
-- [ ] Find a better way to generate PDF in smaller size ( hope so )
 
 ## Usage
 
 - Left click on a text to edit it.
-- Right click on a item in a list to popup the menu, you can add an item or move up / move down / delete the clicked item.
-- Component with picture can load local image by left clicking itself or the hover button.
+- Right click on an item in a list to popup the menu, you can add an item or move up / move down / delete the clicked one.
+- Component with picture can load local image via the button on it.
 
 ## Syntax
 
-- Link: use markdown syntax `[]()` to input a link directly.
+- Link: use markdown syntax `[]()` to create a styled html link directly.
 
 ## Develop
 
