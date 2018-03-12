@@ -14,14 +14,6 @@ export default class componentName extends Component {
     }
   }
 
-  piece(array, batchSize) {
-    let result = []
-    for (let i = 0; i < array.length; i += batchSize) {
-      result.push(array.slice(i, i + batchSize))
-    }
-    return result
-  }
-
   _arrayBufferToBase64(buffer) {
     let binary = ''
     let bytes = new Uint8Array(buffer)
